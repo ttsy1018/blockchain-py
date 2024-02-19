@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "blockchain-py"
+version = "0.1.0"
+description = ""
+authors = ["ttsy <ttsy1018@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.7.3"
+base58 = "1.0.3"
+ecdsa = "0.13"
+flask = "1.0.2"
+requests = "2.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
