@@ -83,13 +83,17 @@ class BlockChain(object):
         return nonce
     
     def mining(self):
+        # 報酬のトランザクションを追加
         self.add_transaction(
             sender_blockchain_address=MINING_SENDER,
             recipient_blockchain_address=self.blockchain_address,
             value=MINING_REWARD
         )
+        # ナンスの計算
         nonce = self.proof_of_work()
+        # 最後尾のハッシュ値
         previous_hash = self.hash(self.chain[-1])
+        # ブロック生成
         self.create_block(nonce, previous_hash)
         
         logger.info({'action': 'mining', 'status': 'success'})
