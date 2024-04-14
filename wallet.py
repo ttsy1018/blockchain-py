@@ -1,3 +1,8 @@
+"""
+ブロックチェーンアドレスの作成
+デジタル署名を行う
+"""
+
 import base58
 import codecs
 import hashlib

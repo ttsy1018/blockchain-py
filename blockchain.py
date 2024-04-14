@@ -1,3 +1,12 @@
+"""
+トランザクションを行う
+・トランザクションプールへの追加
+・ナンスの計算
+・ブロックの生成
+・ブロックのハッシュ化
+・マイニング
+"""
+
 import hashlib
 import json
 import logging
@@ -14,11 +23,12 @@ logger = logging.getLogger(__name__)
 
 class BlockChain(object):
 
-    def __init__(self, blockchain_address=None) -> None:
+    def __init__(self, blockchain_address=None, port=None) -> None:
         self.transaction_pool = []
         self.chain = []
         self.create_block(0, self.hash({}))
         self.blockchain_address = blockchain_address
+        self.port = port
 
     # ナンスと直前のハッシュ値を受け取りブロックを作成
     def create_block(self, nonce, previous_hash):
